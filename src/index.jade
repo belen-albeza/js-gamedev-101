@@ -10,12 +10,12 @@ head
 body
     article#deck
         section
-            h1.title Game development with<br>JavaScript and Phaser
+            h1.title HTML5 game development<br>with Phaser
             p: a(href="https://www.twitter.com/ladybenko") @ladybenko
             p belen@mozilla.com
 
         section
-            h1.bullet Why make games in JS?
+            h1.bullet Why make HTML5 games?
             h2.bullet Because we can :)
 
         section
@@ -28,16 +28,18 @@ body
                 li <a href="http://www.phaser.io">phaser.io</a>
 
         section#demo
-            h1 A game in a weekend
-            p: a(href="http://lab.belenalbeza.com/games/ldjam-32", target="_blank")
-                img.screenshot(src="images/metal_screenshot.png")
+            h1 Games in a weekend
+            ul.thumbnails
+                li: a(href="http://lab.belenalbeza.com/games/ldjam-32", target="_blank")
+                    img.screenshot(src="images/metal_screenshot.png")
+                li: a(href="http://lab.belenalbeza.com/games/ldjam-35", target="_blank")
+                    img.screenshot(src="images/skypanic_screenshot.png")
+                li: a(href="http://lab.belenalbeza.com/games/ldjam-33", target="_blank")
+                    img.screenshot(src="images/hades_screenshot.png")
 
         section
             h1 Slides &amp; examples
-            p: a(href="https://github.com/belen-albeza/talk-js-gamedev") belen-albeza.github.io/talk-js-gamedev
-
-        section
-            h1 Press start button
+            p: a(href="https://github.com/belen-albeza/js-gamedev-101") belen-albeza.github.io/js-gamedev-101
 
         section
             h1 What do we need to make a game?
@@ -65,9 +67,6 @@ body
                 window.onload = function ()  {
                     new Phaser.Game(640, 480, Phaser.WEBGL, 'wrapper', loop);
                 };
-
-        section
-            h1 Images and sprites
 
         section
             h1 Draw images
@@ -169,15 +168,12 @@ body
             h2.bullet <strong>PROBLEM</strong>: it's expensive!
 
         section
-            h1 Recycle sprites
+            h1 Sprites pools
             p: img(src="images/recycle.svg").figure
             ul
                 li Don't destroy sprites… mark them as "zombies"
-                li Re-use "zombie" sprites instead of <code>new</code>
+                li Recycle "zombie" sprites instead of <code>new</code>
                 li Easy to implement with <code>Phaser.Group</code>
-
-        section
-            h1 Input, audio &amp; text
 
         section
             h1 Input
@@ -194,17 +190,16 @@ body
                     game.input.keyboard.addKeyCapture(
                         [Phaser.Keyboard.SPACEBAR]);
 
-                    // register event callback
-                    spacebar.onDown.add(shoot);
                 }
 
         section
             pre: code.language-javascript.
+                // register event callback
+                spacebar.onDown.add(shoot);
+            pre: code.language-javascript.
                 // check key flag
-                function update() {
-                    if (spacebar.isDown) {
-                        shoot();
-                    }
+                if (spacebar.isDown) {
+                    shoot();
                 }
 
         section
@@ -270,20 +265,8 @@ body
             h1 The rest
 
         section
-            h1.bullet The golden rule about game dev
-            h2.bullet If you can fake it, then fake it.
-
-        section
-            h1 You should also look into
-            ul
-                li Game states
-                li Tiled maps
-                li Finite state machines
-                li Scripting
-
-        section
             h1 Examples for this talk
-            p: a(href="http://belen-albeza.github.io/talk-js-gamedev/examples/") Snippets and a game!
+            p: a(href="http://belen-albeza.github.io/js-gamedev-101/examples/") Snippets and a game!
 
         section
             h1 Links
